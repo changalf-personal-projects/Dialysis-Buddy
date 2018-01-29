@@ -2,19 +2,21 @@ package com.example.android.dialysisbuddy.fragments;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.models.Vitals;
 import com.example.android.dialysisbuddy.ui.VitalsRecyclerviewAdapter;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import butterknife.BindView;
@@ -44,8 +46,11 @@ public class VitalsFragment extends Fragment {
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Calendar cal = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("MMM d yyyy");
+                int date = cal.get(Calendar.YEAR) + cal.get(Calendar.MONTH) + cal.get(Calendar.DAY_OF_MONTH);
+                String formatDate = sdf.format(date);
+                Toast.makeText(getActivity(), formatDate, Toast.LENGTH_SHORT).show();
             }
         });
 
