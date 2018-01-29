@@ -17,6 +17,7 @@ import com.example.android.dialysisbuddy.ui.VitalsRecyclerviewAdapter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -48,7 +49,7 @@ public class VitalsFragment extends Fragment {
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
                 SimpleDateFormat sdf = new SimpleDateFormat("MMM d yyyy");
-                int date = cal.get(Calendar.YEAR) + cal.get(Calendar.MONTH) + cal.get(Calendar.DAY_OF_MONTH);
+                Date date = cal.getTime();
                 String formatDate = sdf.format(date);
                 Toast.makeText(getActivity(), formatDate, Toast.LENGTH_SHORT).show();
             }
