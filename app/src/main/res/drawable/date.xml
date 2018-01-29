@@ -3,8 +3,6 @@
     android:shape="rectangle"
     android:id="@+id/date">
 
-    <corners android:radius="5dp" />
-
     <size
         android:height="35dp"
         android:width="35dp" />
