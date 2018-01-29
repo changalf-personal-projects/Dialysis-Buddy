@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.android.dialysisbuddy.fragments.AppointmentsFragment;
+import com.example.android.dialysisbuddy.fragments.DrugsFragment;
 import com.example.android.dialysisbuddy.fragments.VitalsFragment;
 import com.example.android.dialysisbuddy.ui.VitalsAdapter;
 
@@ -78,9 +80,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void addFragments(VitalsAdapter adapter) {
         adapter.addFragment(new VitalsFragment());
+        adapter.addFragment(new DrugsFragment());
+        adapter.addFragment(new AppointmentsFragment());
     }
 
     private void addFragmentTitles(VitalsAdapter adapter) {
         adapter.addTitle("Vitals");
+        adapter.addTitle("Drugs");
+        adapter.addTitle("Dates");
     }
 }
