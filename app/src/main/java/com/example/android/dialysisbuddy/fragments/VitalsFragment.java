@@ -10,13 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.android.dialysisbuddy.R;
+import com.example.android.dialysisbuddy.Utilities;
 import com.example.android.dialysisbuddy.models.Vitals;
 import com.example.android.dialysisbuddy.ui.VitalsRecyclerviewAdapter;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -30,6 +28,7 @@ import butterknife.ButterKnife;
 public class VitalsFragment extends Fragment {
 
     private final String LOG_TAG = VitalsFragment.class.getSimpleName();
+    private final String SPACE = " ";
 
     private Map<String, Vitals> mListOfVitals = new LinkedHashMap<>();
     private VitalsRecyclerviewAdapter mAdapter;
@@ -43,7 +42,11 @@ public class VitalsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.vitals_fragment_main, container, false);
         ButterKnife.bind(this, rootView);
         setupVitalsRecyclerView();
+        listenForFabClick();
+        return rootView;
+    }
 
+    private void listenForFabClick() {
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,23 +54,14 @@ public class VitalsFragment extends Fragment {
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
                 int month = calendar.get(Calendar.MONTH) + 1;
                 int year = calendar.get(Calendar.YEAR);
-                SimpleDateFormat sdf1 = new SimpleDateFormat("M");
-                Date date = null;
-                try {
-                    date = sdf1.parse(String.valueOf(month));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                SimpleDateFormat sdf2 = new SimpleDateFormat("MMM");
-                String currentMonth = sdf2.format(date);
-                String dayte = currentMonth + " " + day + " " + year;
+
+                String date = Utilities.formatMonth(month) + SPACE + day + SPACE + year;
                 Vitals vitals = new Vitals(60.2, "188/150", 100);
-                mListOfVitals.put(dayte, vitals);
+                mListOfVitals.put(date, vitals);
+
                 mAdapter.notifyDataSetChanged();
             }
         });
-
-        return rootView;
     }
 
     private void setupVitalsRecyclerView() {
