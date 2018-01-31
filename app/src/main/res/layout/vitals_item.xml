@@ -16,22 +16,40 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/vitals_date_box"
-            android:src="@drawable/date" >
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/vitals_date_box"
+                android:src="@drawable/date" />
 
             <TextView
-                android:id="@+id/month" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/month"
+                android:layout_gravity="top|center"
+                android:textColor="#FFFFFF" />
 
             <TextView
-                android:id="@+id/day" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/day"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:textSize="50sp"
+                android:textColor="#FFFFFF" />
 
             <TextView
-                android:id="@+id/year" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/year"
+                android:layout_gravity="bottom|center"
+                android:textColor="#FFFFFF" />
 
-        </ImageView>
+        </FrameLayout>
 
         <TextView
             android:layout_width="wrap_content"

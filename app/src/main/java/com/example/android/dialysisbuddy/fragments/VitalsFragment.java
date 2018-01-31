@@ -8,16 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.models.Vitals;
-import com.example.android.dialysisbuddy.models.Date;
 import com.example.android.dialysisbuddy.ui.VitalsRecyclerviewAdapter;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,12 +28,9 @@ public class VitalsFragment extends Fragment {
 
     private final String LOG_TAG = VitalsFragment.class.getSimpleName();
 
-    private List<Vitals> mListOfVitals = new ArrayList<>();
+    private Map<String, Vitals> mListOfVitals = new LinkedHashMap<>();
     private VitalsRecyclerviewAdapter mAdapter;
 
-    @BindView(R.id.month) TextView mMonth;
-    @BindView(R.id.day) TextView mDay;
-    @BindView(R.id.year) TextView mYear;
     @BindView(R.id.vitals_recyclerview) RecyclerView mVitalsRecyclerView;
     @BindView(R.id.fab) FloatingActionButton mFab;
 
@@ -53,8 +48,7 @@ public class VitalsFragment extends Fragment {
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
                 int month = calendar.get(Calendar.MONTH) + 1;
                 int year = calendar.get(Calendar.YEAR);
-                Date date = new Date(day, month, year);
-                // Use a map to store date and vitals info.
+
             }
         });
 
@@ -66,22 +60,22 @@ public class VitalsFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mVitalsRecyclerView.setLayoutManager(layoutManager);
         mVitalsRecyclerView.setAdapter(mAdapter);
-
-        // TEST
-        initTest();
     }
 
     // TEST
     private void initTest() {
-        Vitals vitals1 = new Vitals(54.8, "125/66", 55);
-        mListOfVitals.add(vitals1);
-
-        Vitals vitals2 = new Vitals(54.8, "125/66", 55);
-        mListOfVitals.add(vitals2);
-
-        Vitals vitals3 = new Vitals(54.8, "125/66", 55);
-        mListOfVitals.add(vitals3);
-
-        mAdapter.notifyDataSetChanged();
+//        Vitals vitals4 = new Vitals(60.2, "188/150", 100);
+//        mListOfVitals.put("Feb 14 2018", vitals4);
+//
+//        Vitals vitals1 = new Vitals(54.8, "125/66", 55);
+//        mListOfVitals.put("Jan 30 2018", vitals1);
+//
+//        Vitals vitals2 = new Vitals(55.8, "125/66", 55);
+//        mListOfVitals.put("Jan 31 2018", vitals2);
+//
+//        Vitals vitals3 = new Vitals(51.8, "125/66", 55);
+//        mListOfVitals.put("Feb 1 2018", vitals3);
+//
+//        mAdapter.notifyDataSetChanged();
     }
 }
