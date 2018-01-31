@@ -13,7 +13,10 @@ import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.models.Vitals;
 import com.example.android.dialysisbuddy.ui.VitalsRecyclerviewAdapter;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -48,7 +51,19 @@ public class VitalsFragment extends Fragment {
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
                 int month = calendar.get(Calendar.MONTH) + 1;
                 int year = calendar.get(Calendar.YEAR);
-
+                SimpleDateFormat sdf1 = new SimpleDateFormat("M");
+                Date date = null;
+                try {
+                    date = sdf1.parse(String.valueOf(month));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                SimpleDateFormat sdf2 = new SimpleDateFormat("MMM");
+                String currentMonth = sdf2.format(date);
+                String dayte = currentMonth + " " + day + " " + year;
+                Vitals vitals = new Vitals(60.2, "188/150", 100);
+                mListOfVitals.put(dayte, vitals);
+                mAdapter.notifyDataSetChanged();
             }
         });
 
@@ -60,22 +75,5 @@ public class VitalsFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mVitalsRecyclerView.setLayoutManager(layoutManager);
         mVitalsRecyclerView.setAdapter(mAdapter);
-    }
-
-    // TEST
-    private void initTest() {
-//        Vitals vitals4 = new Vitals(60.2, "188/150", 100);
-//        mListOfVitals.put("Feb 14 2018", vitals4);
-//
-//        Vitals vitals1 = new Vitals(54.8, "125/66", 55);
-//        mListOfVitals.put("Jan 30 2018", vitals1);
-//
-//        Vitals vitals2 = new Vitals(55.8, "125/66", 55);
-//        mListOfVitals.put("Jan 31 2018", vitals2);
-//
-//        Vitals vitals3 = new Vitals(51.8, "125/66", 55);
-//        mListOfVitals.put("Feb 1 2018", vitals3);
-//
-//        mAdapter.notifyDataSetChanged();
     }
 }
