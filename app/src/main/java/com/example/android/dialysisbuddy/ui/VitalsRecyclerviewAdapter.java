@@ -51,11 +51,8 @@ public class VitalsRecyclerviewAdapter extends RecyclerView.Adapter<VitalsRecycl
 
     public class VitalsViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.vitals_date_box)
-        ImageView mVitalsDateBox;
-
-        @BindView(R.id.weight)
-        TextView mWeight;
+        @BindView(R.id.vitals_date_box) ImageView mVitalsDateBox;
+        @BindView(R.id.weight) TextView mWeight;
 
         public VitalsViewHolder(View itemView) {
             super(itemView);

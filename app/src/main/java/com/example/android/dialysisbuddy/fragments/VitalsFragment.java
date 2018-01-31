@@ -8,16 +8,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.models.Vitals;
+import com.example.android.dialysisbuddy.models.Date;
 import com.example.android.dialysisbuddy.ui.VitalsRecyclerviewAdapter;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -34,6 +33,9 @@ public class VitalsFragment extends Fragment {
     private List<Vitals> mListOfVitals = new ArrayList<>();
     private VitalsRecyclerviewAdapter mAdapter;
 
+    @BindView(R.id.month) TextView mMonth;
+    @BindView(R.id.day) TextView mDay;
+    @BindView(R.id.year) TextView mYear;
     @BindView(R.id.vitals_recyclerview) RecyclerView mVitalsRecyclerView;
     @BindView(R.id.fab) FloatingActionButton mFab;
 
@@ -47,11 +49,12 @@ public class VitalsFragment extends Fragment {
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
-                SimpleDateFormat sdf = new SimpleDateFormat("MMM d yyyy");
-                Date date = cal.getTime();
-                String formatDate = sdf.format(date);
-                Toast.makeText(getActivity(), formatDate, Toast.LENGTH_SHORT).show();
+                Calendar calendar = Calendar.getInstance();
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH) + 1;
+                int year = calendar.get(Calendar.YEAR);
+                Date date = new Date(day, month, year);
+                // Use a map to store date and vitals info.
             }
         });
 

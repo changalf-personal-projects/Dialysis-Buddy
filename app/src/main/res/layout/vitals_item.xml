@@ -20,7 +20,18 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/vitals_date_box"
-            android:src="@drawable/date" />
+            android:src="@drawable/date" >
+
+            <TextView
+                android:id="@+id/month" />
+
+            <TextView
+                android:id="@+id/day" />
+
+            <TextView
+                android:id="@+id/year" />
+
+        </ImageView>
 
         <TextView
             android:layout_width="wrap_content"
