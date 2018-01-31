@@ -1,5 +1,6 @@
 package com.example.android.dialysisbuddy.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.Utilities;
+import com.example.android.dialysisbuddy.VitalsDialogActivity;
 import com.example.android.dialysisbuddy.models.Vitals;
 import com.example.android.dialysisbuddy.ui.VitalsRecyclerviewAdapter;
 
@@ -59,6 +61,10 @@ public class VitalsFragment extends Fragment {
                 Vitals vitals = new Vitals(60.2, "188/150", 100);
                 mListOfVitals.put(date, vitals);
 
+                Intent dialogIntent = new Intent(getActivity(), VitalsDialogActivity.class);
+                startActivity(dialogIntent);
+
+                // Put this inside another onClick in VitalsDialogActivity.
                 mAdapter.notifyDataSetChanged();
             }
         });
