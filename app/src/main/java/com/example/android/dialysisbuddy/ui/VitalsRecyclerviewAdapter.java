@@ -1,7 +1,6 @@
 package com.example.android.dialysisbuddy.ui;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,20 +44,22 @@ public class VitalsRecyclerviewAdapter extends RecyclerView.Adapter<VitalsRecycl
     @Override
     public void onBindViewHolder(VitalsViewHolder holder, int position) {
         Set<String> dates = new LinkedHashSet<>();
-        dates.addAll(mListOfVitals.keySet());
         List<String> listOfDates = new ArrayList<>();
+
+        dates.addAll(mListOfVitals.keySet());
         listOfDates.addAll(dates);
         String date = listOfDates.get(position);
         String[] mdy = date.split(" ");
         Vitals vitals = mListOfVitals.get(date);
+        bind(holder, mdy, vitals);
+    }
+
+    private void bind(VitalsViewHolder holder, String[] mdy, Vitals vitals) {
         holder.mVitalsDateBox.setImageResource(R.drawable.date);
         holder.mMonth.setText(mdy[0]);
         holder.mDay.setText(mdy[1]);
         holder.mYear.setText(mdy[2]);
         holder.mWeight.setText(String.valueOf(vitals.getWeight()));
-        Log.v(LOG_TAG, "Dates: " + dates);
-        Log.v(LOG_TAG, "Date: " + date);
-        Log.v(LOG_TAG, "Position: " + position);
     }
 
     @Override
