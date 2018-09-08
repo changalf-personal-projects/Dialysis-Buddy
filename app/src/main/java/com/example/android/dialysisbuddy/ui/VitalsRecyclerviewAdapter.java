@@ -59,7 +59,9 @@ public class VitalsRecyclerviewAdapter extends RecyclerView.Adapter<VitalsRecycl
         holder.mMonth.setText(mdy[0]);
         holder.mDay.setText(mdy[1]);
         holder.mYear.setText(mdy[2]);
-        holder.mWeight.setText(String.valueOf(vitals.getWeight()));
+        holder.mWeight.setText(vitals.getWeight());
+        holder.mBloodPressure.setText(vitals.getBloodPressure());
+        holder.mPulse.setText(vitals.getPulse());
     }
 
     @Override
@@ -71,6 +73,8 @@ public class VitalsRecyclerviewAdapter extends RecyclerView.Adapter<VitalsRecycl
 
         @BindView(R.id.vitals_date_box) ImageView mVitalsDateBox;
         @BindView(R.id.weight) TextView mWeight;
+        @BindView(R.id.blood_pressure) TextView mBloodPressure;
+        @BindView(R.id.pulse) TextView mPulse;
         @BindView(R.id.month) TextView mMonth;
         @BindView(R.id.day) TextView mDay;
         @BindView(R.id.year) TextView mYear;

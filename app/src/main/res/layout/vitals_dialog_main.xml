@@ -13,14 +13,20 @@
         <NumberPicker
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:id="@+id/main_weight_picker"
-            android:layout_gravity="center" />
+            android:id="@+id/weight_picker"
+            android:gravity="center" />
 
         <NumberPicker
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:id="@+id/sec_weight_picker"
-            android:layout_gravity="center" />
+            android:id="@+id/bp_picker"
+            android:gravity="center" />
+
+        <NumberPicker
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/pulse_picker"
+            android:gravity="center" />
 
     </LinearLayout>
 
@@ -28,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="OK"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:id="@+id/ok_button" />
 
 </LinearLayout>

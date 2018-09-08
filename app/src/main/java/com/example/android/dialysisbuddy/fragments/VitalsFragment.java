@@ -1,5 +1,6 @@
 package com.example.android.dialysisbuddy.fragments;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.NumberPicker;
+import android.widget.Toast;
 
 import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.Utilities;
@@ -27,8 +30,13 @@ import butterknife.ButterKnife;
  * Created by alfredchang on 2018-01-20.
  */
 
-public class VitalsFragment extends Fragment {
+public class VitalsFragment extends Fragment implements NumberPicker.OnValueChangeListener {
 
+    public static final int REQUEST = 1;
+    public static final String WEIGHT_RESULT = "weight";
+    public static final String BP_RESULT = "blood pressure";
+    public static final String PULSE_RESULT = "pulse";
+    private final String ACTIVITY_CANCELLED_MESSAGE = "Enter a weight.";
     private final String LOG_TAG = VitalsFragment.class.getSimpleName();
     private final String SPACE = " ";
 
@@ -44,30 +52,67 @@ public class VitalsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.vitals_fragment_main, container, false);
         ButterKnife.bind(this, rootView);
         setupVitalsRecyclerView();
-        listenForFabClick();
         return rootView;
     }
 
-    private void listenForFabClick() {
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Calendar calendar = Calendar.getInstance();
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-                int month = calendar.get(Calendar.MONTH) + 1;
-                int year = calendar.get(Calendar.YEAR);
-
-                String date = Utilities.formatMonth(month) + SPACE + day + SPACE + year;
-                Vitals vitals = new Vitals(60.2, "188/150", 100);
-                mListOfVitals.put(date, vitals);
-
                 Intent dialogIntent = new Intent(getActivity(), VitalsDialogActivity.class);
-                startActivity(dialogIntent);
-
-                // Put this inside another onClick in VitalsDialogActivity.
-                mAdapter.notifyDataSetChanged();
+                startActivityForResult(dialogIntent, REQUEST);
             }
         });
+    }
+
+//    private void listenForFabClick() {
+//        mFab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Calendar calendar = Calendar.getInstance();
+//                int day = calendar.get(Calendar.DAY_OF_MONTH);
+//                int month = calendar.get(Calendar.MONTH) + 1;
+//                int year = calendar.get(Calendar.YEAR);
+//
+//                Intent dialogIntent = new Intent(getActivity(), VitalsDialogActivity.class);
+//                startActivity(dialogIntent);
+//
+//                String date = Utilities.formatMonth(month) + SPACE + day + SPACE + year;
+//                Vitals vitals = new Vitals(60.2, "188/150", 100);
+//                mListOfVitals.put(date, vitals);
+//
+//                // Put this inside another onClick in VitalsDialogActivity.
+//                mAdapter.notifyDataSetChanged();
+//            }
+//        });
+//    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if (resultCode == Activity.RESULT_CANCELED) {
+            Toast.makeText(getContext(), ACTIVITY_CANCELLED_MESSAGE, Toast.LENGTH_SHORT).show();
+        } else if (requestCode == REQUEST) {
+            Calendar calendar = Calendar.getInstance();
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+            int month = calendar.get(Calendar.MONTH) + 1;
+            int year = calendar.get(Calendar.YEAR);
+
+            int weight = intent.getIntExtra(WEIGHT_RESULT, 0);
+            int systolic = intent.getIntExtra(BP_RESULT, 0);
+            int pulse = intent.getIntExtra(PULSE_RESULT, 0);
+
+            String date = Utilities.formatMonth(month) + SPACE + day + SPACE + year;
+            Vitals vitals = new Vitals("Weight: " + Integer.toString(weight) + " kg",
+                    "Heart rate: " + Integer.toString(systolic), "Pulse: " + Integer.toString(pulse) + " beats/min");
+            mListOfVitals.put(date, vitals);
+
+            mAdapter.notifyDataSetChanged();
+
+        }
     }
 
     private void setupVitalsRecyclerView() {
@@ -75,5 +120,10 @@ public class VitalsFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mVitalsRecyclerView.setLayoutManager(layoutManager);
         mVitalsRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+
     }
 }

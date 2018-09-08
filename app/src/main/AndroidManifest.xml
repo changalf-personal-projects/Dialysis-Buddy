@@ -21,7 +21,7 @@
         <activity
             android:name=".VitalsDialogActivity"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:label="Weight"
+            android:label="kgs.....systolic.....beats/min"
             android:excludeFromRecents="true" />
     </application>
 

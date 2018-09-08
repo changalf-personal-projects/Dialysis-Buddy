@@ -6,17 +6,17 @@ package com.example.android.dialysisbuddy.models;
 
 public class Vitals {
 
-    private double mWeight;
+    private String mWeight;
     private String mBloodPressure;
-    private int mPulse;
+    private String mPulse;
 
-    public Vitals(double weight, String bloodPressure, int pulse) {
+    public Vitals(String weight, String bloodPressure, String pulse) {
         mWeight = weight;
         mBloodPressure = bloodPressure;
         mPulse = pulse;
     }
 
-    public double getWeight() {
+    public String getWeight() {
         return mWeight;
     }
 
@@ -24,7 +24,7 @@ public class Vitals {
         return mBloodPressure;
     }
 
-    public int getPulse() {
+    public String getPulse() {
         return mPulse;
     }
 
