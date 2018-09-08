@@ -67,28 +67,6 @@ public class VitalsFragment extends Fragment implements NumberPicker.OnValueChan
         });
     }
 
-//    private void listenForFabClick() {
-//        mFab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Calendar calendar = Calendar.getInstance();
-//                int day = calendar.get(Calendar.DAY_OF_MONTH);
-//                int month = calendar.get(Calendar.MONTH) + 1;
-//                int year = calendar.get(Calendar.YEAR);
-//
-//                Intent dialogIntent = new Intent(getActivity(), VitalsDialogActivity.class);
-//                startActivity(dialogIntent);
-//
-//                String date = Utilities.formatMonth(month) + SPACE + day + SPACE + year;
-//                Vitals vitals = new Vitals(60.2, "188/150", 100);
-//                mListOfVitals.put(date, vitals);
-//
-//                // Put this inside another onClick in VitalsDialogActivity.
-//                mAdapter.notifyDataSetChanged();
-//            }
-//        });
-//    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
