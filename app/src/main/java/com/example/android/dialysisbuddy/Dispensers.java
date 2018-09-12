@@ -12,10 +12,10 @@ public class Dispensers {
     private static List<Integer> dispensers = new ArrayList<Integer>() {{
         add(R.drawable.med_dispenser_1);
         add(R.drawable.med_dispenser_2);
-        add(R.drawable.med_dispenser_1);
-        add(R.drawable.med_dispenser_2);
-        add(R.drawable.med_dispenser_1);
-        add(R.drawable.med_dispenser_2);
+        add(R.drawable.med_dispenser_3);
+        add(R.drawable.med_dispenser_4);
+        add(R.drawable.med_dispenser_5);
+        add(R.drawable.med_dispenser_6);
     }};
 
     public static List<Integer> getDispensers() {

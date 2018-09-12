@@ -6,9 +6,9 @@
         android:radius="10dp" />
 
     <gradient
-        android:angle="0"
-        android:startColor="@color/disp_2"
-        android:endColor="@color/disp_2"
+        android:angle="45"
+        android:startColor="@color/disp_3"
+        android:endColor="@color/disp_3"
         android:type="sweep" />
 
     <size
