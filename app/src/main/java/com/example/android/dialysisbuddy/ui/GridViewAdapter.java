@@ -46,8 +46,8 @@ public class GridViewAdapter extends BaseAdapter {
         ImageView imageView;
         if (view == null) {
             imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 120));
-            imageView.setPadding(8, 8, 8, 8);
+            imageView.setLayoutParams(new GridView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT));
         } else {
             imageView = (ImageView) view;
         }

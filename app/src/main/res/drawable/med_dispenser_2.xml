@@ -6,13 +6,13 @@
         android:radius="10dp" />
 
     <gradient
-        android:angle="45"
+        android:angle="0"
         android:startColor="@color/white"
         android:endColor="@color/disp_2"
         android:type="sweep" />
 
     <size
-        android:width="100dp"
-        android:height="100dp" />
+        android:width="200dp"
+        android:height="200dp" />
 
 </shape>
