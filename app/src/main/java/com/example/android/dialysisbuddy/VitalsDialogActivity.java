@@ -34,7 +34,7 @@ public class VitalsDialogActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.vitals_dialog_main);
+        setContentView(R.layout.activity_vitals_dialog);
         ButterKnife.bind(this);
 
         setupWeightPicker();

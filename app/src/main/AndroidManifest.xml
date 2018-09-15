@@ -23,6 +23,9 @@
             android:theme="@style/Theme.AppCompat.Dialog"
             android:label="kgs.....systolic.....beats/min"
             android:excludeFromRecents="true" />
+        <activity
+            android:name=".DrugViewActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
