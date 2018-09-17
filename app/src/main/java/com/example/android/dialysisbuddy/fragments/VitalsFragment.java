@@ -49,7 +49,7 @@ public class VitalsFragment extends Fragment implements NumberPicker.OnValueChan
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.vitals_fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_vitals_main, container, false);
         ButterKnife.bind(this, rootView);
         setupVitalsRecyclerView();
         return rootView;

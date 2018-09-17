@@ -31,7 +31,7 @@ public class DrugsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.drugs_fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_drugs_main, container, false);
 
         ButterKnife.bind(this, rootView);
 
