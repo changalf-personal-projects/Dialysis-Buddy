@@ -2,6 +2,7 @@ package com.example.android.dialysisbuddy.ui;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,7 @@ public class DrugsRecyclerViewAdapter extends RecyclerView.Adapter<DrugsRecycler
     private List<Drug> mListOfDrugs;
     private int counter = 0;
 
-    public DrugsRecyclerViewAdapter(Context context, List<Drug> listOfDrugs) {
+    public DrugsRecyclerViewAdapter(List<Drug> listOfDrugs) {
         mListOfDrugs = listOfDrugs;
     }
 
@@ -42,11 +43,16 @@ public class DrugsRecyclerViewAdapter extends RecyclerView.Adapter<DrugsRecycler
 
     @Override
     public void onBindViewHolder(DrugsViewHolder holder, int position) {
+        // Debug.
+        for (Drug drug: mListOfDrugs) {
+            Log.d(LOG_TAG, "Name of drug: " + drug.getName() + "; " + "Position: " + position);
+        }
+
         Drug drug = mListOfDrugs.get(position);
         onBindDrugIcon(holder);
         onBindDrugName(holder, drug);
         onBindDrugDose(holder, drug);
-        onBindDrugFrequency(holder, drug);
+        onBindDrugFrequency(holder);
     }
 
     private void onBindDrugIcon(DrugsViewHolder holder) {
@@ -74,7 +80,7 @@ public class DrugsRecyclerViewAdapter extends RecyclerView.Adapter<DrugsRecycler
         holder.mDose.setText(drug.getDosage());
     }
 
-    private void onBindDrugFrequency(DrugsViewHolder holder, Drug drug) {
+    private void onBindDrugFrequency(DrugsViewHolder holder) {
         holder.mDayIcon.setImageResource(R.mipmap.day_off);
         holder.mNightIcon.setImageResource(R.mipmap.night_off);
     }

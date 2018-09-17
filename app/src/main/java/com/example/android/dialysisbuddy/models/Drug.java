@@ -13,6 +13,12 @@ public class Drug {
     private String mDosage;
     private ImageView mFrequency;            // May not need this here...
 
+    // Test constructor.
+    public Drug(String name, String dosage) {
+        mName = name;
+        mDosage = dosage;
+    }
+
     public Drug(ImageView icon, String name, String dosage, ImageView frequency) {
         mIcon = icon;
         mName = name;

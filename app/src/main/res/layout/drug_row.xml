@@ -11,7 +11,7 @@
         android:id="@+id/drug_icon" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -27,6 +27,18 @@
 
     </LinearLayout>
 
-    <include layout="@layout/time_of_day_icons" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/day_on"
+        android:id="@+id/day_icon" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/night_on"
+        android:id="@+id/night_icon" />
+
+    <!--<include layout="@layout/time_of_day_icons" />-->
 
 </LinearLayout>
