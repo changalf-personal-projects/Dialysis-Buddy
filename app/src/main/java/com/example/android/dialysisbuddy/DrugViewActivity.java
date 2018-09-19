@@ -32,11 +32,18 @@ public class DrugViewActivity extends AppCompatActivity {
 
         // Test data for recycler adapter.
         List<Drug> listOfDrugs = new ArrayList<>();
-        listOfDrugs.add(new Drug("Prednisone", "2 pills"));
-        listOfDrugs.add(new Drug("Cellcept", "3 capsules"));
-        listOfDrugs.add(new Drug("Fosamax", "1 pill"));
-        listOfDrugs.add(new Drug("Sensipar", "1 tablet"));
-        listOfDrugs.add(new Drug("Calcium carbonate", "2 pills"));
+
+        Drug prednisone = new Drug("Prednisone", "1 pill");
+        Drug fosamax = new Drug("Fosamax", "2 pills");
+        Drug calcium = new Drug("Calcium", "3 pills");
+        Drug cipralex = new Drug("Cipralex", "4 pills");
+        Drug cellcept = new Drug("Cellcept", "5 pills");
+
+        listOfDrugs.add(prednisone);
+        listOfDrugs.add(fosamax);
+        listOfDrugs.add(calcium);
+        listOfDrugs.add(cipralex);
+        listOfDrugs.add(cellcept);
 
         DrugsRecyclerViewAdapter recyclerViewAdapter = new DrugsRecyclerViewAdapter(listOfDrugs);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));

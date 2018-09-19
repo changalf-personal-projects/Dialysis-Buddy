@@ -43,11 +43,6 @@ public class DrugsRecyclerViewAdapter extends RecyclerView.Adapter<DrugsRecycler
 
     @Override
     public void onBindViewHolder(DrugsViewHolder holder, int position) {
-        // Debug.
-        for (Drug drug: mListOfDrugs) {
-            Log.d(LOG_TAG, "Name of drug: " + drug.getName() + "; " + "Position: " + position);
-        }
-
         Drug drug = mListOfDrugs.get(position);
         onBindDrugIcon(holder);
         onBindDrugName(holder, drug);
@@ -87,6 +82,8 @@ public class DrugsRecyclerViewAdapter extends RecyclerView.Adapter<DrugsRecycler
 
     @Override
     public int getItemCount() {
+        Log.d(LOG_TAG, "List size getItemCount: " + mListOfDrugs.size());
+
         return mListOfDrugs.size();
     }
 
