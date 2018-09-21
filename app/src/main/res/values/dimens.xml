@@ -3,4 +3,11 @@
 
     <!-- Vitals fragment -->
     <dimen name="cardview_side_margin">5dp</dimen>
+
+    <!-- Drugs fragment -->
+    <dimen name="dispenser_margin">7dp</dimen>
+    <dimen name="dispenser_width">350dp</dimen>
+    <dimen name="dispenser_height">150dp</dimen>
+    <dimen name="day_margin">12dp</dimen>
+
 </resources>

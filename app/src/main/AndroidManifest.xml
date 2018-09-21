@@ -26,6 +26,9 @@
         <activity
             android:name=".DrugViewActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DrugsDialogActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -7,8 +7,8 @@
 
     <gradient
         android:angle="45"
-        android:startColor="@color/disp_6"
-        android:endColor="@color/disp_6"
+        android:startColor="@color/disp_7"
+        android:endColor="@color/disp_7"
         android:type="sweep" />
 
     <size
