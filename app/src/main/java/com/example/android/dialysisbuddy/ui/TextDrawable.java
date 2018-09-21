@@ -47,6 +47,6 @@ public class TextDrawable extends Drawable {
 
     @Override
     public int getOpacity() {
-        return PixelFormat.TRANSLUCENT;
+        return PixelFormat.OPAQUE;
     }
 }

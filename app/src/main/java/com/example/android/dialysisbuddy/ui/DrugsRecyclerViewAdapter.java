@@ -2,7 +2,6 @@ package com.example.android.dialysisbuddy.ui;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,8 +81,6 @@ public class DrugsRecyclerViewAdapter extends RecyclerView.Adapter<DrugsRecycler
 
     @Override
     public int getItemCount() {
-        Log.d(LOG_TAG, "List size getItemCount: " + mListOfDrugs.size());
-
         return mListOfDrugs.size();
     }
 
