@@ -18,6 +18,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@mipmap/ic_fab"
-        app:backgroundTint="#FFA500" />
+        app:backgroundTint="#000080" />
 
 </FrameLayout>
