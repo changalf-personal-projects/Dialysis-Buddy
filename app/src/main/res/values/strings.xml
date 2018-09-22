@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Dialysis Buddy</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Drugs -->
+    <string name="name_of_drug">Name</string>
+    <string name="dose_of_drug">Dosage</string>
 </resources>
