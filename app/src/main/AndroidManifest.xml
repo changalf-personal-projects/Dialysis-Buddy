@@ -28,7 +28,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".DrugsDialogActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog"
+            android:label="Add Drug" />
     </application>
 
 </manifest>
