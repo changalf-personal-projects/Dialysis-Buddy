@@ -1,5 +1,6 @@
 package com.example.android.dialysisbuddy;
 
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 /**
@@ -7,4 +8,9 @@ import android.support.v7.app.AppCompatActivity;
  */
 
 public class DrugsDialogActivity extends AppCompatActivity {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 }

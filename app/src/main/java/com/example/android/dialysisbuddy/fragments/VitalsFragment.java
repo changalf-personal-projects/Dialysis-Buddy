@@ -36,6 +36,7 @@ public class VitalsFragment extends Fragment implements NumberPicker.OnValueChan
     public static final String WEIGHT_RESULT = "weight";
     public static final String BP_RESULT = "blood pressure";
     public static final String PULSE_RESULT = "pulse";
+
     private final String ACTIVITY_CANCELLED_MESSAGE = "Enter a weight.";
     private final String LOG_TAG = VitalsFragment.class.getSimpleName();
     private final String SPACE = " ";

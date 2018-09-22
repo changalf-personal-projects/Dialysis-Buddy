@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.android.dialysisbuddy.models.Drug;
 import com.example.android.dialysisbuddy.ui.DrugsRecyclerViewAdapter;
@@ -24,7 +25,10 @@ import butterknife.ButterKnife;
 public class DrugViewActivity extends AppCompatActivity {
 
     private final String LOG_TAG = DrugViewActivity.class.getSimpleName();
-    public static final int REQUEST = 1;
+
+    private final int REQUEST = 1;
+    private final String ERR_MSG = "Something went wrong!";
+
 
     @BindView(R.id.drugs_recycler_view) RecyclerView mRecyclerView;
     @BindView(R.id.fab) FloatingActionButton mFab;
@@ -35,36 +39,31 @@ public class DrugViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_drug_view);
         ButterKnife.bind(this);
 
-        setOnClickListener();
+        setFabListener();
 
-        // Test data for recycler adapter.
         List<Drug> listOfDrugs = new ArrayList<>();
-
-        Drug prednisone = new Drug("Prednisone", "1 pill");
-        Drug fosamax = new Drug("Fosamax", "2 pills");
-        Drug calcium = new Drug("Calcium", "3 pills");
-        Drug cipralex = new Drug("Cipralex", "4 pills");
-        Drug cellcept = new Drug("Cellcept", "5 pills");
-
-        listOfDrugs.add(prednisone);
-        listOfDrugs.add(fosamax);
-        listOfDrugs.add(calcium);
-        listOfDrugs.add(cipralex);
-        listOfDrugs.add(cellcept);
-
         DrugsRecyclerViewAdapter recyclerViewAdapter = new DrugsRecyclerViewAdapter(listOfDrugs);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(recyclerViewAdapter);
     }
 
-    private void setOnClickListener() {
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        if (resultCode != RESULT_OK) {
+            Toast.makeText(this, ERR_MSG, Toast.LENGTH_SHORT).show();
+        } else if (requestCode == REQUEST) {
+
+        }
+    }
+
+    private void setFabListener() {
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent dialogIntent = new Intent(view.getContext(), DrugsDialogActivity.class);
-                startActivityForResult(dialogIntent, REQUEST);
+                Intent addDrugIntent = new Intent(view.getContext(), DrugsDialogActivity.class);
+                startActivityForResult(addDrugIntent, REQUEST);
             }
         });
     }
-
 }
