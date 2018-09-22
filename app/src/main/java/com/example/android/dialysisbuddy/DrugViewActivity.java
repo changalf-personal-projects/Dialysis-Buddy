@@ -26,6 +26,10 @@ public class DrugViewActivity extends AppCompatActivity {
 
     private final String LOG_TAG = DrugViewActivity.class.getSimpleName();
 
+    public final static String NAME_RESULT = "name";
+    public final static String DOSE_RESULT = "dose";
+    public static final String TIME_RESULT = "time";
+
     private final int REQUEST = 1;
     private final String ERR_MSG = "Something went wrong!";
 

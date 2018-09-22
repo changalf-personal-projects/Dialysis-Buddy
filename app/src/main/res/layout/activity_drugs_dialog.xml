@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <EditText
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/enter_drug_name"
         android:hint="@string/name_of_drug" />
 
     <EditText
+        android:id="@+id/dose"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/enter_dose"
         android:hint="@string/dose_of_drug" />
 
     <LinearLayout
@@ -22,12 +21,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-         <ImageButton
+        <ImageButton
+            android:id="@+id/day_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/day_off" />
 
-         <ImageButton
+        <ImageButton
+            android:id="@+id/night_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/night_off" />
@@ -35,9 +36,9 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/confirm"
         android:text="Add" />
 
 </LinearLayout>
