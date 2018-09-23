@@ -18,6 +18,10 @@ import butterknife.ButterKnife;
 
 public class DrugsDialogActivity extends AppCompatActivity {
 
+    private final String LOG_TAG = DrugsDialogActivity.class.getSimpleName();
+    private final String DAY = "0";
+    private final String NIGHT = "1";
+
     @BindView(R.id.name) EditText mDrugName;
     @BindView(R.id.dose) EditText mDrugDose;
     @BindView(R.id.day_icon) ImageButton mDayButton;
@@ -38,24 +42,20 @@ public class DrugsDialogActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final Intent resultIntent = new Intent();
-                resultIntent.putExtra(DrugViewActivity.NAME_RESULT, mDrugName.getText());
-                resultIntent.putExtra(DrugViewActivity.DOSE_RESULT, mDrugDose.getText());
+                resultIntent.putExtra(DrugViewActivity.NAME_RESULT, mDrugName.getText().toString());
+                resultIntent.putExtra(DrugViewActivity.DOSE_RESULT, mDrugDose.getText().toString());
 
                 mDayButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (mDayButton.isSelected()) {
-                            resultIntent.putExtra(DrugViewActivity.SELECTED, DrugViewActivity.DAY);
-                        }
+                        resultIntent.putExtra(DrugViewActivity.SELECTED, DAY);
                     }
                 });
 
                 mNightButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (mNightButton.isSelected()) {
-                            resultIntent.putExtra(DrugViewActivity.SELECTED, DrugViewActivity.NIGHT);
-                        }
+                        resultIntent.putExtra(DrugViewActivity.SELECTED, NIGHT);
                     }
                 });
 

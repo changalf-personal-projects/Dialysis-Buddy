@@ -29,8 +29,6 @@ public class DrugViewActivity extends AppCompatActivity {
     public static final String NAME_RESULT = "name";
     public static final String DOSE_RESULT = "dose";
     public static final String SELECTED = "day";
-    public static final String DAY = "0";
-    public static final String NIGHT = "1";
 
     private final int REQUEST = 1;
     private final String ERR_MSG = "Something went wrong!";
@@ -63,13 +61,14 @@ public class DrugViewActivity extends AppCompatActivity {
         } else if (requestCode == REQUEST) {
             String name = intent.getStringExtra(NAME_RESULT);
             String dose = intent.getStringExtra(DOSE_RESULT);
-            int time = Integer.parseInt(intent.getStringExtra(SELECTED));
+            int time = intent.getIntExtra(SELECTED, 0);
+            drug = new Drug(name, dose, time);
 
-            if (time == 0) {
-                drug = new Drug(name, dose, Integer.parseInt(DAY));
-            } else {
-                drug = new Drug(name, dose, Integer.parseInt(NIGHT));
-            }
+//            if (time == 0) {
+//                drug = new Drug(name, dose, 0);
+//            } else {
+//                drug = new Drug(name, dose, 1);
+//            }
         }
 
         mListOfDrugs.add(drug);

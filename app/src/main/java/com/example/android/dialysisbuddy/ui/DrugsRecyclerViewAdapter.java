@@ -1,12 +1,14 @@
 package com.example.android.dialysisbuddy.ui;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.models.Drug;
@@ -23,6 +25,7 @@ import butterknife.ButterKnife;
 public class DrugsRecyclerViewAdapter extends RecyclerView.Adapter<DrugsRecyclerViewAdapter.DrugsViewHolder> {
 
     private final String LOG_TAG = DrugsRecyclerViewAdapter.class.getSimpleName();
+    private final String ERR_MSG = "Please enter all fields.";
 
     private Context mContext;
     private List<Drug> mListOfDrugs;
@@ -43,10 +46,19 @@ public class DrugsRecyclerViewAdapter extends RecyclerView.Adapter<DrugsRecycler
     @Override
     public void onBindViewHolder(DrugsViewHolder holder, int position) {
         Drug drug = mListOfDrugs.get(position);
-        onBindDrugIcon(holder);
-        onBindDrugName(holder, drug);
-        onBindDrugDose(holder, drug);
-        onBindDrugFrequency(holder);
+
+        if (checkValidEntry(drug) && checkValidDrug(drug)) {
+            Toast.makeText(mContext, ERR_MSG, Toast.LENGTH_SHORT).show();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                holder.mDayIcon.setImageIcon(null);
+                holder.mNightIcon.setImageIcon(null);
+            }
+        } else {
+            onBindDrugIcon(holder);
+            onBindDrugName(holder, drug);
+            onBindDrugDose(holder, drug);
+            onBindDrugFrequency(holder);
+        }
     }
 
     private void onBindDrugIcon(DrugsViewHolder holder) {
@@ -77,6 +89,15 @@ public class DrugsRecyclerViewAdapter extends RecyclerView.Adapter<DrugsRecycler
     private void onBindDrugFrequency(DrugsViewHolder holder) {
         holder.mDayIcon.setImageResource(R.mipmap.day_off);
         holder.mNightIcon.setImageResource(R.mipmap.night_off);
+    }
+
+    private boolean checkValidEntry(Drug drug) {
+        return (drug.getName().isEmpty() || drug.getName() == null || drug.getDosage().isEmpty()
+                || drug.getDosage() == null);
+    }
+
+    private boolean checkValidDrug(Drug drug) {
+        return drug != null;
     }
 
     @Override
