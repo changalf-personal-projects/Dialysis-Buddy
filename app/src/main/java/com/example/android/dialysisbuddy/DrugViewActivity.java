@@ -26,13 +26,16 @@ public class DrugViewActivity extends AppCompatActivity {
 
     private final String LOG_TAG = DrugViewActivity.class.getSimpleName();
 
-    public final static String NAME_RESULT = "name";
-    public final static String DOSE_RESULT = "dose";
-    public static final String TIME_RESULT = "time";
+    public static final String NAME_RESULT = "name";
+    public static final String DOSE_RESULT = "dose";
+    public static final String SELECTED = "day";
+    public static final String DAY = "0";
+    public static final String NIGHT = "1";
 
     private final int REQUEST = 1;
     private final String ERR_MSG = "Something went wrong!";
-
+    private List<Drug> mListOfDrugs = new ArrayList<>();
+    private DrugsRecyclerViewAdapter mAdapter = null;
 
     @BindView(R.id.drugs_recycler_view) RecyclerView mRecyclerView;
     @BindView(R.id.fab) FloatingActionButton mFab;
@@ -45,20 +48,32 @@ public class DrugViewActivity extends AppCompatActivity {
 
         setFabListener();
 
-        List<Drug> listOfDrugs = new ArrayList<>();
-        DrugsRecyclerViewAdapter recyclerViewAdapter = new DrugsRecyclerViewAdapter(listOfDrugs);
+        mAdapter = new DrugsRecyclerViewAdapter(mListOfDrugs);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(recyclerViewAdapter);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
+        Drug drug = null;
+
         if (resultCode != RESULT_OK) {
             Toast.makeText(this, ERR_MSG, Toast.LENGTH_SHORT).show();
         } else if (requestCode == REQUEST) {
+            String name = intent.getStringExtra(NAME_RESULT);
+            String dose = intent.getStringExtra(DOSE_RESULT);
+            int time = Integer.parseInt(intent.getStringExtra(SELECTED));
 
+            if (time == 0) {
+                drug = new Drug(name, dose, Integer.parseInt(DAY));
+            } else {
+                drug = new Drug(name, dose, Integer.parseInt(NIGHT));
+            }
         }
+
+        mListOfDrugs.add(drug);
+        mAdapter.notifyDataSetChanged();
     }
 
     private void setFabListener() {

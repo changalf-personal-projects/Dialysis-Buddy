@@ -37,10 +37,28 @@ public class DrugsDialogActivity extends AppCompatActivity {
         mConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent resultIntent = new Intent();
+                final Intent resultIntent = new Intent();
                 resultIntent.putExtra(DrugViewActivity.NAME_RESULT, mDrugName.getText());
-                resultIntent.putExtra(DrugViewActivity.DOSE_RESULT, mDrugName.getText());
-                resultIntent.putExtra(DrugViewActivity.TIME_RESULT, mDrugName.getText());
+                resultIntent.putExtra(DrugViewActivity.DOSE_RESULT, mDrugDose.getText());
+
+                mDayButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (mDayButton.isSelected()) {
+                            resultIntent.putExtra(DrugViewActivity.SELECTED, DrugViewActivity.DAY);
+                        }
+                    }
+                });
+
+                mNightButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (mNightButton.isSelected()) {
+                            resultIntent.putExtra(DrugViewActivity.SELECTED, DrugViewActivity.NIGHT);
+                        }
+                    }
+                });
+
                 setResult(Activity.RESULT_OK, resultIntent);
                 finish();
             }

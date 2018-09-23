@@ -1,33 +1,19 @@
 package com.example.android.dialysisbuddy.models;
 
-import android.widget.ImageView;
-
 /**
  * Created by alfredchang on 2018-09-16.
  */
 
 public class Drug {
 
-    private ImageView mIcon;
     private String mName;
     private String mDosage;
-    private ImageView mFrequency;            // May not need this here...
+    private int mIcon;
 
-    // Test constructor.
-    public Drug(String name, String dosage) {
+    public Drug(String name, String dosage, int icon) {
         mName = name;
         mDosage = dosage;
-    }
-
-    public Drug(ImageView icon, String name, String dosage, ImageView frequency) {
         mIcon = icon;
-        mName = name;
-        mDosage = dosage;
-        mFrequency = frequency;
-    }
-
-    public ImageView getIcon() {
-        return mIcon;
     }
 
     public String getName() {
@@ -38,7 +24,8 @@ public class Drug {
         return mDosage;
     }
 
-    public ImageView getFrequency() {
-        return mFrequency;
+    public int getIcon() {
+        return mIcon;
     }
+
 }
