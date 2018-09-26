@@ -35,7 +35,7 @@ public class VitalsRecyclerviewAdapter extends RecyclerView.Adapter<VitalsRecycl
 
     @Override
     public VitalsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        int vitalsLayoutId = R.layout.vitals_item;
+        int vitalsLayoutId = R.layout.vitals_row;
         View view = LayoutInflater.from(parent.getContext()).inflate(vitalsLayoutId, parent, false);
         VitalsViewHolder viewHolder = new VitalsViewHolder(view);
         return viewHolder;

@@ -47,17 +47,17 @@ public class DrugsRecyclerViewAdapter extends RecyclerView.Adapter<DrugsRecycler
     public void onBindViewHolder(DrugsViewHolder holder, int position) {
         Drug drug = mListOfDrugs.get(position);
 
-        if (checkValidEntry(drug) && checkValidDrug(drug)) {
+        if (checkValidDrug(drug) && checkValidEntry(drug)) {
+            onBindDrugIcon(holder);
+            onBindDrugName(holder, drug);
+            onBindDrugDose(holder, drug);
+            onBindDrugFrequency(holder);
+        } else {
             Toast.makeText(mContext, ERR_MSG, Toast.LENGTH_SHORT).show();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 holder.mDayIcon.setImageIcon(null);
                 holder.mNightIcon.setImageIcon(null);
             }
-        } else {
-            onBindDrugIcon(holder);
-            onBindDrugName(holder, drug);
-            onBindDrugDose(holder, drug);
-            onBindDrugFrequency(holder);
         }
     }
 
@@ -92,8 +92,8 @@ public class DrugsRecyclerViewAdapter extends RecyclerView.Adapter<DrugsRecycler
     }
 
     private boolean checkValidEntry(Drug drug) {
-        return (drug.getName().isEmpty() || drug.getName() == null || drug.getDosage().isEmpty()
-                || drug.getDosage() == null);
+        return ((!drug.getName().isEmpty() || drug.getName() != null) && (!drug.getDosage().isEmpty()
+                || drug.getDosage() != null));
     }
 
     private boolean checkValidDrug(Drug drug) {
