@@ -5,9 +5,11 @@
 
     <CalendarView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:firstDayOfWeek="1"
         android:minDate="01/01/1900"
-        android:maxDate="12/31/3000" />
+        android:maxDate="12/31/3000"
+        android:clickable="true"
+        android:id="@+id/calendar" />
 
 </FrameLayout>
