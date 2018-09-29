@@ -10,5 +10,6 @@
     <string name="new_task"><b>New task</b></string>
     <string name="time"><b>Time</b></string>
     <string name="date"><b>Date</b></string>
+    <string name="save"><b>Save</b></string>
 
 </resources>

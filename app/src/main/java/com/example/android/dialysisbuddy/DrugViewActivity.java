@@ -63,12 +63,6 @@ public class DrugViewActivity extends AppCompatActivity {
             String dose = intent.getStringExtra(DOSE_RESULT);
             int time = intent.getIntExtra(SELECTED, 0);
             drug = new Drug(name, dose, time);
-
-//            if (time == 0) {
-//                drug = new Drug(name, dose, 0);
-//            } else {
-//                drug = new Drug(name, dose, 1);
-//            }
         }
 
         mListOfDrugs.add(drug);

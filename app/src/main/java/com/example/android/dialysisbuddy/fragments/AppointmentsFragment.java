@@ -1,5 +1,6 @@
 package com.example.android.dialysisbuddy.fragments;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.Toast;
 
 import com.example.android.dialysisbuddy.CalendarActivity;
 import com.example.android.dialysisbuddy.R;
@@ -24,6 +26,11 @@ public class AppointmentsFragment extends Fragment {
     public static final String YEAR = "year";
     public static final String MONTH = "month";
     public static final String DAY = "day";
+    public static final String TIME = "hour";
+    public static final String TASK = "task";
+
+    private final String ERR_MSG = "Something went wrong!";
+    private final int REQUEST = 1;
 
     @BindView(R.id.calendar) CalendarView mCalendar;
 
@@ -38,6 +45,18 @@ public class AppointmentsFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if (resultCode != Activity.RESULT_OK) {
+            Toast.makeText(getActivity(), ERR_MSG, Toast.LENGTH_SHORT).show();
+        } else if (requestCode == REQUEST) {
+            String task = intent.getStringExtra(TASK);
+            String time = intent.getStringExtra(TIME);
+        }
+    }
+
     private void setCalendarClickListener() {
         mCalendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
@@ -47,7 +66,7 @@ public class AppointmentsFragment extends Fragment {
                 calendarIntent.putExtra(YEAR, year);
                 calendarIntent.putExtra(MONTH, month);
                 calendarIntent.putExtra(DAY, dayOfMonth);
-                startActivity(calendarIntent);
+                startActivityForResult(calendarIntent, REQUEST);
             }
         });
     }
