@@ -12,6 +12,6 @@
         android:clickable="true"
         android:id="@+id/calendar" />
 
-    <!-- TODO: Use recyclerview here. -->
+    <!-- TODO: Use recyclerview here and adapter. -->
 
 </LinearLayout>
