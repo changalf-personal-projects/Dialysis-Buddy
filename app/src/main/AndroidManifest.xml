@@ -25,11 +25,16 @@
             android:excludeFromRecents="true" />
         <activity
             android:name=".DrugViewActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:label="Drugs"/>
         <activity
             android:name=".DrugsDialogActivity"
             android:theme="@style/Theme.AppCompat.Dialog"
             android:label="Add Drug" />
+        <activity
+            android:name=".CalendarActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            android:label="Important Dates" />
     </application>
 
 </manifest>
