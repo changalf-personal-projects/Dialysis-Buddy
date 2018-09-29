@@ -35,6 +35,9 @@
             android:name=".CalendarActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
             android:label="Important Dates" />
+        <activity
+            android:name=".ClockActivity"
+            android:theme="@style/Theme.AppCompat" />
     </application>
 
 </manifest>

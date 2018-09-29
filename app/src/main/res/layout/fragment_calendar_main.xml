@@ -7,26 +7,29 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/task"
         android:hint="@string/new_task"
         android:layout_margin="@dimen/space_between_date" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/time"
-        android:layout_marginBottom="@dimen/space_between_date"
-        android:layout_marginLeft="@dimen/space_between_date"
-        android:layout_marginStart="@dimen/space_between_date"
-        android:layout_marginRight="@dimen/space_between_date"
-        android:layout_marginEnd="@dimen/space_between_date" />
+    <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="@string/time"-->
+        <!--android:layout_marginBottom="@dimen/space_between_date"-->
+        <!--android:layout_marginLeft="@dimen/space_between_date"-->
+        <!--android:layout_marginStart="@dimen/space_between_date"-->
+        <!--android:layout_marginRight="@dimen/space_between_date"-->
+        <!--android:layout_marginEnd="@dimen/space_between_date" />-->
 
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/date"
+        android:id="@+id/time"
+        android:text="@string/time"
+        android:textSize="17sp"
         android:layout_marginBottom="@dimen/space_between_date"
-        android:layout_marginLeft="@dimen/space_between_date"
-        android:layout_marginStart="@dimen/space_between_date"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
         android:layout_marginRight="@dimen/space_between_date"
         android:layout_marginEnd="@dimen/space_between_date" />
 
