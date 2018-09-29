@@ -13,5 +13,6 @@
 
     <!-- Calendar fragment -->
     <dimen name="time_text_size">12sp</dimen>
+    <dimen name="space_between_date">10dp</dimen>
 
 </resources>

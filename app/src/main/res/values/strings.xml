@@ -5,4 +5,10 @@
     <!-- Drugs -->
     <string name="name_of_drug">Name</string>
     <string name="dose_of_drug">Dosage</string>
+
+    <!-- Calendar -->
+    <string name="new_task"><b>New task</b></string>
+    <string name="time"><b>Date</b></string>
+    <string name="date"><b>Time</b></string>
+
 </resources>
