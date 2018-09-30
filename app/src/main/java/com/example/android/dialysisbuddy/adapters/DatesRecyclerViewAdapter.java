@@ -2,9 +2,11 @@ package com.example.android.dialysisbuddy.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.models.Date;
 
 import java.util.List;
@@ -16,20 +18,38 @@ import java.util.List;
 public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecyclerViewAdapter.DatesViewHolder> {
 
     private List<Date> mListOfDates;
-    private Context mContext;
 
-    public DatesRecyclerViewAdapter(List<Date> listOfDates, Context context) {
+    public DatesRecyclerViewAdapter(List<Date> listOfDates) {
         mListOfDates = listOfDates;
-        mContext = context;
     }
 
     @Override
     public DatesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.appointment_row, parent, false);
+
+        return new DatesViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(DatesViewHolder holder, int position) {
+        Date date = mListOfDates.get(position);
+
+        bindTask(date);
+        bindTime(date);
+        bindDate(date);
+    }
+
+    private void bindTask(Date date) {
+
+    }
+
+    private void bindTime(Date date) {
+
+    }
+
+    private void bindDate(Date date) {
 
     }
 

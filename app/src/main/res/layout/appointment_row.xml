@@ -26,7 +26,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/date"
-            android:layout_alignRight="@id/calendar_icon" />
+            android:layout_alignRight="@id/calendar_icon"
+            android:layout_alignEnd="@id/calendar_icon" />
 
     </RelativeLayout>
 
