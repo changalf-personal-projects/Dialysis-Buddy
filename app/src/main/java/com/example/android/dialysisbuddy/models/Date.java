@@ -16,15 +16,15 @@ public class Date {
         mYear = year;
     }
 
-    public int getmDay() {
+    public int getDay() {
         return mDay;
     }
 
-    public int getmMonth() {
+    public int getMonth() {
         return mMonth;
     }
 
-    public int getmYear() {
+    public int getYear() {
         return mYear;
     }
 }

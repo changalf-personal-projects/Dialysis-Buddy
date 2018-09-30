@@ -35,7 +35,7 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mListOfDates.size();
     }
 
     public class DatesViewHolder extends RecyclerView.ViewHolder {
