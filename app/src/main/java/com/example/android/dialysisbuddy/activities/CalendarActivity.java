@@ -1,8 +1,9 @@
-package com.example.android.dialysisbuddy;
+package com.example.android.dialysisbuddy.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.fragments.CalendarFragment;
 
 /**

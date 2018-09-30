@@ -1,4 +1,4 @@
-package com.example.android.dialysisbuddy;
+package com.example.android.dialysisbuddy.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -8,10 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.fragments.AppointmentsFragment;
 import com.example.android.dialysisbuddy.fragments.DrugsFragment;
 import com.example.android.dialysisbuddy.fragments.VitalsFragment;
-import com.example.android.dialysisbuddy.ui.VitalsAdapter;
+import com.example.android.dialysisbuddy.adapters.VitalsAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

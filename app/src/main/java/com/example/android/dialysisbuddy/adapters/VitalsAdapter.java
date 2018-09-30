@@ -1,4 +1,4 @@
-package com.example.android.dialysisbuddy.ui;
+package com.example.android.dialysisbuddy.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

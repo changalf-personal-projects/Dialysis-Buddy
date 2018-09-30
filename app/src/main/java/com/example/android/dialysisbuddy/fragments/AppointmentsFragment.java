@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
-import com.example.android.dialysisbuddy.CalendarActivity;
+import com.example.android.dialysisbuddy.activities.CalendarActivity;
 import com.example.android.dialysisbuddy.R;
 
 import butterknife.BindView;

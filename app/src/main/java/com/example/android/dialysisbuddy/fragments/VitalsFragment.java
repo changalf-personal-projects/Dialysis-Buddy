@@ -15,9 +15,9 @@ import android.widget.Toast;
 
 import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.Utilities;
-import com.example.android.dialysisbuddy.VitalsDialogActivity;
+import com.example.android.dialysisbuddy.activities.VitalsDialogActivity;
 import com.example.android.dialysisbuddy.models.Vitals;
-import com.example.android.dialysisbuddy.ui.VitalsRecyclerviewAdapter;
+import com.example.android.dialysisbuddy.adapters.VitalsRecyclerviewAdapter;
 
 import java.util.Calendar;
 import java.util.LinkedHashMap;

@@ -1,4 +1,4 @@
-package com.example.android.dialysisbuddy.ui;
+package com.example.android.dialysisbuddy.adapters;
 
 import android.content.Context;
 import android.os.Build;

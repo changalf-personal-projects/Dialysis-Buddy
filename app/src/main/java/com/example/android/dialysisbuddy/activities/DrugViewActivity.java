@@ -1,4 +1,4 @@
-package com.example.android.dialysisbuddy;
+package com.example.android.dialysisbuddy.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.models.Drug;
-import com.example.android.dialysisbuddy.ui.DrugsRecyclerViewAdapter;
+import com.example.android.dialysisbuddy.adapters.DrugsRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

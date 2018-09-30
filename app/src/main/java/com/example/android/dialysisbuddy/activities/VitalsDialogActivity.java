@@ -1,4 +1,4 @@
-package com.example.android.dialysisbuddy;
+package com.example.android.dialysisbuddy.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
 
+import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.fragments.VitalsFragment;
 
 import butterknife.BindView;
