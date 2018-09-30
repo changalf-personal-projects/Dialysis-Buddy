@@ -5,11 +5,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.models.Date;
 
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by alfredchang on 2018-09-29.
@@ -60,8 +65,14 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
 
     public class DatesViewHolder extends RecyclerView.ViewHolder {
 
+        @BindView(R.id.task) TextView task;
+        @BindView(R.id.time) TextView time;
+        @BindView(R.id.calendar_icon) ImageView calendarIcon;
+        @BindView(R.id.date) TextView date;
+
         public DatesViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 }
