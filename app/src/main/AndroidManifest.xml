@@ -26,7 +26,8 @@
         <activity
             android:name=".activities.DrugViewActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-            android:label="Drugs" />
+            android:label="Drugs"
+            android:parentActivityName=".activities.MainActivity" />
         <activity
             android:name=".activities.DrugsDialogActivity"
             android:theme="@style/Theme.AppCompat.Dialog"
@@ -34,7 +35,8 @@
         <activity
             android:name=".activities.CalendarActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
-            android:label="Important Dates" />
+            android:label="Important Dates"
+            android:parentActivityName=".activities.MainActivity" />
     </application>
 
 </manifest>
