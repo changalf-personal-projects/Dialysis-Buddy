@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,11 @@ import android.widget.Toast;
 
 import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.activities.CalendarActivity;
+import com.example.android.dialysisbuddy.adapters.DatesRecyclerViewAdapter;
+import com.example.android.dialysisbuddy.models.Appointment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,16 +42,21 @@ public class AppointmentsFragment extends Fragment {
     private final int REQUEST = 1;
 
     private String mDate;
+    private DatesRecyclerViewAdapter mDatesRecyclerViewAdapter;
+    private List<Appointment> mListOfAppointments;
 
     @BindView(R.id.calendar) CalendarView mCalendar;
+    @BindView(R.id.appointments) RecyclerView mRecyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         super.onCreateView(inflater, parent, savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_appointments_main, parent, false);
+        mListOfAppointments = new ArrayList<>();
 
         ButterKnife.bind(this, rootView);
         setCalendarClickListener();
+        setupAdapter();
 
         return rootView;
     }
@@ -60,6 +72,13 @@ public class AppointmentsFragment extends Fragment {
             String time = intent.getStringExtra(TIME);
             Log.v(LOG_TAG, "What is the appointment?" + task + "; " + time + "; " + mDate);
         }
+    }
+
+    private void setupAdapter() {
+        mDatesRecyclerViewAdapter = new DatesRecyclerViewAdapter(mListOfAppointments);
+        mRecyclerView.setAdapter(mDatesRecyclerViewAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,
+                false));
     }
 
     private void setCalendarClickListener() {
