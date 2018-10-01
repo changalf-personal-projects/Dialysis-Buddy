@@ -16,15 +16,15 @@ public class Appointment {
         mDate = date;
     }
 
-    public Task getmTask() {
+    public Task getTask() {
         return mTask;
     }
 
-    public Time getmTime() {
+    public Time getTime() {
         return mTime;
     }
 
-    public Date getmDate() {
+    public Date getDate() {
         return mDate;
     }
 }

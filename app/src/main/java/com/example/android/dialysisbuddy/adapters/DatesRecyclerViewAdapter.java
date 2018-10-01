@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.dialysisbuddy.R;
+import com.example.android.dialysisbuddy.models.Appointment;
 import com.example.android.dialysisbuddy.models.Date;
 
 import java.util.List;
@@ -22,10 +23,10 @@ import butterknife.ButterKnife;
 
 public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecyclerViewAdapter.DatesViewHolder> {
 
-    private List<Date> mListOfDates;
+    private List<Appointment> mListOfAppointments;
 
-    public DatesRecyclerViewAdapter(List<Date> listOfDates) {
-        mListOfDates = listOfDates;
+    public DatesRecyclerViewAdapter(List<Appointment> listOfAppointments) {
+        mListOfAppointments = listOfAppointments;
     }
 
     @Override
@@ -39,11 +40,8 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
 
     @Override
     public void onBindViewHolder(DatesViewHolder holder, int position) {
-        Date date = mListOfDates.get(position);
+        Appointment date = mListOfAppointments.get(position);
 
-        bindTask(date);
-        bindTime(date);
-        bindDate(date);
     }
 
     private void bindTask(Date date) {
@@ -60,7 +58,7 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
 
     @Override
     public int getItemCount() {
-        return mListOfDates.size();
+        return mListOfAppointments.size();
     }
 
     public class DatesViewHolder extends RecyclerView.ViewHolder {
