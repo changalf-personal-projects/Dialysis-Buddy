@@ -9,7 +9,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/task"
         android:hint="@string/new_task"
-        android:layout_margin="@dimen/space_between_date" />
+        android:layout_margin="@dimen/space_between_date"
+        android:layout_marginTop="@dimen/space_between_texts" />
 
     <TextView
         android:layout_width="match_parent"
@@ -17,16 +18,21 @@
         android:id="@+id/time"
         android:text="@string/time"
         android:textSize="17sp"
-        android:layout_marginBottom="@dimen/space_between_date"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginRight="@dimen/space_between_date"
-        android:layout_marginEnd="@dimen/space_between_date" />
+        android:layout_marginEnd="@dimen/space_between_date"
+        android:layout_marginTop="@dimen/space_between_texts" />
+
+    <include layout="@layout/teal_line" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/save"
-        android:id="@+id/save_button" />
+        android:id="@+id/save_button"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/top_margin_save_button" />
 
 </LinearLayout>

@@ -15,4 +15,7 @@
     <color name="disp_6">#33DAFF</color>
     <color name="disp_7">#0000FF</color>
 
+    <!-- DateActivity/DateFragment. -->
+    <color name="teal">#038482</color>
+
 </resources>
