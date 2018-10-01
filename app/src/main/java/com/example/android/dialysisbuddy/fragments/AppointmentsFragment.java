@@ -46,7 +46,7 @@ public class AppointmentsFragment extends Fragment {
     private List<Appointment> mListOfAppointments;
 
     @BindView(R.id.calendar) CalendarView mCalendar;
-    @BindView(R.id.appointments) RecyclerView mRecyclerView;
+    @BindView(R.id.appointments_recyclerview) RecyclerView mRecyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
