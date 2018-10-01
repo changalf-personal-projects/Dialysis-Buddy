@@ -41,21 +41,21 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
     public void onBindViewHolder(DatesViewHolder holder, int position) {
         Appointment appointment = mListOfAppointments.get(position);
 
-        bindTask(appointment.getTask());
-        bindTime(appointment.getTime());
-        bindDate(appointment.getDate());
+        bindTask(appointment.getTask(), holder);
+        bindTime(appointment.getTime(), holder);
+        bindDate(appointment.getDate(), holder);
     }
 
-    private void bindTask(String task) {
-
+    private void bindTask(String task, DatesViewHolder holder) {
+        holder.task.setText(task);
     }
 
-    private void bindTime(String time) {
-
+    private void bindTime(String time, DatesViewHolder holder) {
+        holder.time.setText(time);
     }
 
-    private void bindDate(String date) {
-
+    private void bindDate(String date, DatesViewHolder holder) {
+        holder.date.setText(date);
     }
 
     @Override
