@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.android.dialysisbuddy.R;
 import com.example.android.dialysisbuddy.models.Appointment;
-import com.example.android.dialysisbuddy.models.Date;
 
 import java.util.List;
 
@@ -40,19 +39,22 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
 
     @Override
     public void onBindViewHolder(DatesViewHolder holder, int position) {
-        Appointment date = mListOfAppointments.get(position);
+        Appointment appointment = mListOfAppointments.get(position);
+
+        bindTask(appointment.getTask());
+        bindTime(appointment.getTime());
+        bindDate(appointment.getDate());
+    }
+
+    private void bindTask(String task) {
 
     }
 
-    private void bindTask(Date date) {
+    private void bindTime(String time) {
 
     }
 
-    private void bindTime(Date date) {
-
-    }
-
-    private void bindDate(Date date) {
+    private void bindDate(String date) {
 
     }
 

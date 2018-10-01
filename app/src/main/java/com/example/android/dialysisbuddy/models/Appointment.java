@@ -6,25 +6,25 @@ package com.example.android.dialysisbuddy.models;
 
 public class Appointment {
 
-    private Task mTask;
-    private Time mTime;
-    private Date mDate;
+    private String mTask;
+    private String mTime;
+    private String mDate;
 
-    public Appointment(Task task, Time time, Date date) {
+    public Appointment(String task, String time, String date) {
         mTask = task;
         mTime = time;
         mDate = date;
     }
 
-    public Task getTask() {
+    public String getTask() {
         return mTask;
     }
 
-    public Time getTime() {
+    public String getTime() {
         return mTime;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return mDate;
     }
 }
