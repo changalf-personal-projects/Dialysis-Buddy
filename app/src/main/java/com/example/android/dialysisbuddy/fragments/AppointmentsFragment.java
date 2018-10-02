@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,7 +69,7 @@ public class AppointmentsFragment extends Fragment {
         } else if (requestCode == REQUEST) {
             String task = intent.getStringExtra(TASK);
             String time = intent.getStringExtra(TIME);
-            Log.v(LOG_TAG, "What is the appointment?" + task + "; " + time + "; " + mDate);
+            addAppointmentToList(task, time);
         }
     }
 
@@ -79,6 +78,12 @@ public class AppointmentsFragment extends Fragment {
         mRecyclerView.setAdapter(mDatesRecyclerViewAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,
                 false));
+    }
+
+    private void addAppointmentToList(String task, String time) {
+        Appointment appointment = new Appointment(task, time, mDate);
+        mListOfAppointments.add(appointment);
+        mDatesRecyclerViewAdapter.notifyDataSetChanged();
     }
 
     private void setCalendarClickListener() {
