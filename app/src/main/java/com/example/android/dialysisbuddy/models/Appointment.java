@@ -1,7 +1,5 @@
 package com.example.android.dialysisbuddy.models;
 
-import android.util.Log;
-
 /**
  * Created by alfredchang on 2018-10-01.
  */
@@ -32,8 +30,4 @@ public class Appointment {
         return mDate;
     }
 
-    // Method to test appointment object is right.
-    private void checkForCorrectAppointment() {
-        Log.v(LOG_TAG, "Debugging appointment: " + mTask + ": " + mTime + ": " + mDate);
-    }
 }
