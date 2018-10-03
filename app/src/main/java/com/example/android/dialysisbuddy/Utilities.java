@@ -56,6 +56,15 @@ public class Utilities {
     // TODO.
     public static boolean isPastDate(int day, int time) {
         boolean isPast = false;
+
+        // Get current date.
+
+
+        // Get current time.
+
+
+        // Check if parameters are past current date and time.
+
         return isPast;
     }
 }
