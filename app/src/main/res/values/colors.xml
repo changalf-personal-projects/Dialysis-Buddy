@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
     <color name="light_grey">#D3D3D3</color>
+    <color name="black">#000000</color>
 
     <!-- Medicine dispenser colours. -->
     <color name="disp_1">#334FFF</color>

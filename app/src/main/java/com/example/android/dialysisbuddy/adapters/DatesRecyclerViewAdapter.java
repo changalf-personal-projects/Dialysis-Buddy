@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.dialysisbuddy.R;
@@ -71,7 +70,6 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
 
         @BindView(R.id.task) TextView task;
         @BindView(R.id.time) TextView time;
-        @BindView(R.id.calendar_icon) ImageView calendarIcon;
         @BindView(R.id.date) TextView date;
 
         public DatesViewHolder(View itemView) {

@@ -13,8 +13,10 @@
 
     <!-- Calendar fragment -->
     <dimen name="time_text_size">12sp</dimen>
+    <dimen name="task_text_size">18sp</dimen>
     <dimen name="space_between_date">10dp</dimen>
     <dimen name="space_between_texts">12dp</dimen>
     <dimen name="top_margin_save_button">5dp</dimen>
+    <dimen name="appointment_row_margin">15dp</dimen>
 
 </resources>
