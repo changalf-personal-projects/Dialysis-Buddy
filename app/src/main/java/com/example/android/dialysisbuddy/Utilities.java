@@ -52,4 +52,10 @@ public class Utilities {
 
         return new StringBuilder().append(hour).append(":").append(minute).append(format);
     }
+
+    // TODO.
+    public static boolean isPastDate(int day, int time) {
+        boolean isPast = false;
+        return isPast;
+    }
 }
