@@ -57,7 +57,6 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
         String[] hourMinuteArray = time.split(":");
         StringBuilder formattedTime = Utilities.formatTime(Integer.parseInt(hourMinuteArray[0]),
                 Integer.parseInt(hourMinuteArray[1]));
-        Log.v(LOG_TAG, "Formatted time: " + formattedTime.toString());
         holder.time.setText(formattedTime.toString());
     }
 

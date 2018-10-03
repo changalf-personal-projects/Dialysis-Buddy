@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.CalendarView;
 import android.widget.Toast;
 
 import com.example.android.dialysisbuddy.R;
+import com.example.android.dialysisbuddy.Utilities;
 import com.example.android.dialysisbuddy.activities.CalendarActivity;
 import com.example.android.dialysisbuddy.adapters.DatesRecyclerViewAdapter;
 import com.example.android.dialysisbuddy.models.Appointment;
@@ -103,7 +105,8 @@ public class AppointmentsFragment extends Fragment {
 
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int dayOfMonth) {
-                mDate = String.valueOf(year) + "/" + String.valueOf(month) + "/" + String.valueOf(dayOfMonth);
+                mDate = Utilities.formatMonth(month) + " " + String.valueOf(dayOfMonth) + ", "
+                        + String.valueOf(year);
                 Intent calendarIntent = new Intent(getActivity(), CalendarActivity.class);
                 calendarIntent.putExtra(YEAR, year);
                 calendarIntent.putExtra(MONTH, month);
