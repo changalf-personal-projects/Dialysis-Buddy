@@ -18,5 +18,9 @@
     <dimen name="space_between_texts">12dp</dimen>
     <dimen name="top_margin_save_button">5dp</dimen>
     <dimen name="appointment_row_margin">15dp</dimen>
+    <dimen name="space_between_task_time">3dp</dimen>
+    <dimen name="space_between_time_date">6dp</dimen>
+    <dimen name="date_padding_right">10dp</dimen>
+    <dimen name="title_size">20sp</dimen>
 
 </resources>

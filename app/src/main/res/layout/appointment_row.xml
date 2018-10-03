@@ -5,6 +5,8 @@
     android:orientation="vertical"
     android:layout_margin="@dimen/appointment_row_margin">
 
+    <include layout="@layout/gray_line" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,16 +17,21 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/time" />
+        android:id="@+id/time"
+        android:layout_marginTop="@dimen/space_between_task_time" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/date"
-            android:maxLines="1"
-            android:layout_gravity="center_vertical"
-            android:drawableLeft="@mipmap/green_calendar_icon"
-            android:drawableStart="@mipmap/green_calendar_icon"
-            android:gravity="center_vertical" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/date"
+        android:maxLines="1"
+        android:layout_gravity="center_vertical"
+        android:drawableLeft="@mipmap/green_calendar_icon"
+        android:drawableStart="@mipmap/green_calendar_icon"
+        android:gravity="center_vertical"
+        android:background="@color/whiteSmoke"
+        android:layout_marginTop="@dimen/space_between_time_date"
+        android:paddingRight="@dimen/date_padding_right"
+        android:paddingEnd="@dimen/date_padding_right" />
 
 </LinearLayout>

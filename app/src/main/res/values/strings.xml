@@ -11,5 +11,6 @@
     <string name="time"><b>Time</b></string>
     <string name="date"><b>Date</b></string>
     <string name="save"><b>Save</b></string>
+    <string name="my_tasks">My Tasks</string>
 
 </resources>
