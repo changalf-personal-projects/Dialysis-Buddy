@@ -44,7 +44,6 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
         bindTask(appointment.getTask(), holder);
         bindTime(appointment.getTime(), holder);
         bindDate(appointment.getDate(), holder);
-        setAnimation();
     }
 
     private void bindTask(String task, DatesViewHolder holder) {
@@ -57,10 +56,6 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
 
     private void bindDate(String date, DatesViewHolder holder) {
         holder.date.setText(date);
-    }
-
-    private void setAnimation() {
-
     }
 
     @Override
