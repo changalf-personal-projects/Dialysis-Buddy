@@ -97,7 +97,6 @@ public class AppointmentsFragment extends Fragment {
         Appointment appointment = new Appointment(task, time, mDate);
         Log.v(LOG_TAG, "Debugging appointment: " + task + ": " + time + ": " + mDate);
         mListOfAppointments.add(appointment);
-        Log.v(LOG_TAG, "The appointment: " + mListOfAppointments.get(0));
         mDatesRecyclerViewAdapter.notifyDataSetChanged();
     }
 

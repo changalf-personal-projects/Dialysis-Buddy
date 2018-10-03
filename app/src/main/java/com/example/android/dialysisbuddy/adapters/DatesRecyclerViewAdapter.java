@@ -2,6 +2,7 @@ package com.example.android.dialysisbuddy.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,8 @@ import butterknife.ButterKnife;
  */
 
 public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecyclerViewAdapter.DatesViewHolder> {
+
+    private final String LOG_TAG = DatesRecyclerViewAdapter.class.getSimpleName();
 
     private List<Appointment> mListOfAppointments;
 
@@ -55,6 +58,7 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
     }
 
     private void bindDate(String date, DatesViewHolder holder) {
+        Log.v(LOG_TAG, "The date: " + date);
         holder.date.setText(date);
     }
 
