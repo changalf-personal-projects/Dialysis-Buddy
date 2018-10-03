@@ -5,7 +5,6 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
-import android.text.format.DateFormat;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -30,7 +29,8 @@ public class ClockFragment extends DialogFragment implements TimePickerDialog.On
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);
         ButterKnife.bind(this, getActivity());
-        return new TimePickerDialog(getActivity(), this, HOUR, MINUTE, DateFormat.is24HourFormat(getActivity()));
+
+        return new TimePickerDialog(getActivity(), this, HOUR, MINUTE, false);
     }
 
     @Override
