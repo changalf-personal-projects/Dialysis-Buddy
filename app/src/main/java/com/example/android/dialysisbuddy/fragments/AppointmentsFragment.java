@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -57,6 +58,7 @@ public class AppointmentsFragment extends Fragment {
         ButterKnife.bind(this, rootView);
         setCalendarClickListener();
         setupAdapter();
+        setupAnimator();
 
         return rootView;
     }
@@ -79,6 +81,16 @@ public class AppointmentsFragment extends Fragment {
         mRecyclerView.setAdapter(mDatesRecyclerViewAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,
                 false));
+    }
+
+    private void setupAnimator() {
+        DefaultItemAnimator animator = new DefaultItemAnimator() {
+            @Override
+            public boolean canReuseUpdatedViewHolder(RecyclerView.ViewHolder viewHolder) {
+                return true;
+            }
+        };
+        mRecyclerView.setItemAnimator(animator);
     }
 
     private void addAppointmentToList(String task, String time) {
