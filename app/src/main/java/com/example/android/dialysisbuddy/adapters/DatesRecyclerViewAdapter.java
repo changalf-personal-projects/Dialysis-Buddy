@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.android.dialysisbuddy.R;
+import com.example.android.dialysisbuddy.Utilities;
 import com.example.android.dialysisbuddy.models.Appointment;
 
 import java.util.List;
@@ -53,11 +54,14 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
     }
 
     private void bindTime(String time, DatesViewHolder holder) {
-        holder.time.setText(time);
+        String[] hourMinuteArray = time.split(":");
+        StringBuilder formattedTime = Utilities.formatTime(Integer.parseInt(hourMinuteArray[0]),
+                Integer.parseInt(hourMinuteArray[1]));
+        Log.v(LOG_TAG, "Formatted time: " + formattedTime.toString());
+        holder.time.setText(formattedTime.toString());
     }
 
     private void bindDate(String date, DatesViewHolder holder) {
-        Log.v(LOG_TAG, "The date: " + date);
         holder.date.setText(date);
     }
 

@@ -10,10 +10,10 @@ import java.util.Date;
 
 public class Utilities {
 
-    private final static String INIT_FORMAT = "M";
-    private final static String FINAL_FORMAT = "MMM";
-
     public static String formatMonth(int month) {
+        final String INIT_FORMAT = "M";
+        final String FINAL_FORMAT = "MMM";
+
         SimpleDateFormat sdf1 = new SimpleDateFormat(INIT_FORMAT);
         Date date = null;
 
@@ -27,5 +27,29 @@ public class Utilities {
         String formattedMonth = sdf2.format(date);
 
         return formattedMonth;
+    }
+
+    public static StringBuilder formatTime(int hour, int minute) {
+        String format;
+
+        if (hour == 0) {
+            hour += 12;
+            format = "AM";
+        } else if (hour == 12) {
+            format = "PM";
+        } else if (hour > 12) {
+            hour -= 12;
+            format = "PM";
+        } else {
+            format = "AM";
+        }
+
+        if (minute >= 0 && minute <= 9) {
+            String formattedMinute = String.valueOf(minute);
+            formattedMinute = "0" + formattedMinute;
+            return new StringBuilder().append(hour).append(":").append(formattedMinute).append(format);
+        }
+
+        return new StringBuilder().append(hour).append(":").append(minute).append(format);
     }
 }
