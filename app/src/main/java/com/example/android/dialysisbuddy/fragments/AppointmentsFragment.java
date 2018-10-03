@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -95,7 +94,6 @@ public class AppointmentsFragment extends Fragment {
 
     private void addAppointmentToList(String task, String time) {
         Appointment appointment = new Appointment(task, time, mDate);
-        Log.v(LOG_TAG, "Debugging appointment: " + task + ": " + time + ": " + mDate);
         mListOfAppointments.add(appointment);
         mDatesRecyclerViewAdapter.notifyDataSetChanged();
     }
