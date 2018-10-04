@@ -1,14 +1,20 @@
 package com.example.android.dialysisbuddy;
 
+import android.util.Log;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Created by alfredchang on 2018-01-30.
  */
 
 public class Utilities {
+
+    private static final String LOG_TAG = Utilities.class.getSimpleName();
 
     public static String formatMonth(int month) {
         final String INIT_FORMAT = "M";
@@ -24,9 +30,7 @@ public class Utilities {
         }
 
         SimpleDateFormat sdf2 = new SimpleDateFormat(FINAL_FORMAT);
-        String formattedMonth = sdf2.format(date);
-
-        return formattedMonth;
+        return sdf2.format(date);
     }
 
     public static StringBuilder formatTime(int hour, int minute) {
@@ -53,17 +57,36 @@ public class Utilities {
         return new StringBuilder().append(hour).append(":").append(minute).append(format);
     }
 
-    // TODO.
-    public static boolean isPastDate(int day, int time) {
+    // TODO -- must be callback.
+    public static boolean isPastDate(String date, String hour, String minute) {
         boolean isPast = false;
 
-        // Get current date.
+        Log.v(LOG_TAG, "Complete date: " + date);
 
+        // Get current date.
+        Calendar calendar = Calendar.getInstance();
+        TimeZone localTimeZone = TimeZone.getDefault();
+        calendar.setTimeZone(localTimeZone);
+
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+        int ampm = calendar.get(Calendar.AM_PM);
 
         // Get current time.
+        int currentHour = calendar.get(Calendar.HOUR);
+        int currentMinute = calendar.get(Calendar.MINUTE);
 
+        String currentTime = month + " " + dayOfMonth + ", " + year + " " + currentHour + ":"
+                + currentMinute + " " + ampm;
+        Date parameterTime = new Date(date + " " + hour + ":" + minute + " ");
 
         // Check if parameters are past current date and time.
+        try {
+            isPast = new SimpleDateFormat("MMM dd, yyyy hh:mm aaa").parse(currentTime).after(parameterTime);
+        } catch (ParseException e) {
+            Log.v(LOG_TAG, "Could not parse simple date format.");
+        }
 
         return isPast;
     }

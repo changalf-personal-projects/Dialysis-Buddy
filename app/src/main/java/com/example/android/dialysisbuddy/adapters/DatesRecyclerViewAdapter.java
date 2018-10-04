@@ -2,7 +2,6 @@ package com.example.android.dialysisbuddy.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +25,9 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
     private final String LOG_TAG = DatesRecyclerViewAdapter.class.getSimpleName();
 
     private List<Appointment> mListOfAppointments;
+    private String mDate;
+    private String mHour;
+    private String mMinute;
 
     public DatesRecyclerViewAdapter(List<Appointment> listOfAppointments) {
         mListOfAppointments = listOfAppointments;
@@ -47,6 +49,10 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
         bindTask(appointment.getTask(), holder);
         bindTime(appointment.getTime(), holder);
         bindDate(appointment.getDate(), holder);
+
+        if (Utilities.isPastDate(mDate, mHour, mMinute)) {
+
+        }
     }
 
     private void bindTask(String task, DatesViewHolder holder) {
@@ -55,12 +61,17 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
 
     private void bindTime(String time, DatesViewHolder holder) {
         String[] hourMinuteArray = time.split(":");
+
+        mHour = hourMinuteArray[0];
+        mMinute = hourMinuteArray[1];
+
         StringBuilder formattedTime = Utilities.formatTime(Integer.parseInt(hourMinuteArray[0]),
                 Integer.parseInt(hourMinuteArray[1]));
         holder.time.setText(formattedTime.toString());
     }
 
     private void bindDate(String date, DatesViewHolder holder) {
+        mDate = date;
         holder.date.setText(date);
     }
 
