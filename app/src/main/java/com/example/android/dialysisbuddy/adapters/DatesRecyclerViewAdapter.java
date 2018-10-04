@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.dialysisbuddy.R;
@@ -51,7 +52,7 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
         bindDate(appointment.getDate(), holder);
 
         if (Utilities.isPastDate(mDate, mHour, mMinute)) {
-
+            holder.calendarIcon.setImageResource(R.mipmap.red_calendar_icon);
         }
     }
 
@@ -85,6 +86,7 @@ public class DatesRecyclerViewAdapter extends RecyclerView.Adapter<DatesRecycler
         @BindView(R.id.task) TextView task;
         @BindView(R.id.time) TextView time;
         @BindView(R.id.date) TextView date;
+        @BindView(R.id.calendar_icon) ImageView calendarIcon;
 
         public DatesViewHolder(View itemView) {
             super(itemView);

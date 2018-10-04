@@ -20,18 +20,29 @@
         android:id="@+id/time"
         android:layout_marginTop="@dimen/space_between_task_time" />
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/date"
-        android:maxLines="1"
-        android:layout_gravity="center_vertical"
-        android:drawableLeft="@mipmap/green_calendar_icon"
-        android:drawableStart="@mipmap/green_calendar_icon"
-        android:gravity="center_vertical"
-        android:background="@color/whiteSmoke"
-        android:layout_marginTop="@dimen/space_between_time_date"
-        android:paddingRight="@dimen/date_padding_right"
-        android:paddingEnd="@dimen/date_padding_right" />
+        android:orientation="horizontal"
+        android:background="@color/whiteSmoke">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/calendar_icon"
+            android:src="@mipmap/green_calendar_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/date"
+            android:maxLines="1"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/space_between_time_date"
+            android:paddingRight="@dimen/date_padding_right"
+            android:paddingEnd="@dimen/date_padding_right" />
+
+    </LinearLayout>
 
 </LinearLayout>
